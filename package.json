@@ -1,0 +1,19 @@
+{
+  "name": "twitter-bot",
+  "version": "2.0.0",
+  "description": "tweets about the weather",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
+    "moment": "^2.29.1",
+    "node-cron": "^3.0.0",
+    "twitter-api-client": "^1.5.1"
+  }
+}
