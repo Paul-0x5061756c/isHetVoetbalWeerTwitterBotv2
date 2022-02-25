@@ -40,7 +40,8 @@ async function getWeather() {
 		.get(
 			`${process.env.WEATHER_URL}&appid=${process.env.WEATHER_API_KEY}&units=metric`
 		)
-		.then((resp) => resp.data);
+		.then((r) => r.data)
+		.catch((e) => console.log("error fetching weather: ", e));
 }
 
 async function createTweet(weather) {
