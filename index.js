@@ -24,6 +24,11 @@ const weatherDescriptionMapping = {
 
 const canWePlayFootball = (temp, desc) => {
 	const notSoNiceCondition = ["Rain", "Drizzle", "Snow"];
+	if(temp > 20){
+		return notSoNiceCondition.indexOf(desc) === -1
+			? "Ja, maar het is wel erg warm"
+			: "Nee, het is warm, maar kans op neerslag";
+	}
 	if (temp > 10) {
 		return notSoNiceCondition.indexOf(desc) === -1
 			? "Ja, het is heerlijk"
