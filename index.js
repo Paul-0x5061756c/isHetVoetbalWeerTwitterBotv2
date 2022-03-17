@@ -50,20 +50,20 @@ async function getWeather() {
 }
 
 async function createTweet(weather) {
-	const time = moment().tz("Europe/Amsterdam").format("LT");
 	const canWePlay = canWePlayFootball(
 		weather.main.temp,
 		weather.weather[0].main
 	);
 	const desc = weatherDescriptionMapping[weather.weather[0].main];
-	return `[${time}] ${canWePlay}. De huidige temperatuur ligt rond de ${weather.main.temp} graden & het is voornamelijk ${desc}. \n\n
+	return `${canWePlay}. De huidige temperatuur ligt rond de ${weather.main.temp} graden & het is voornamelijk ${desc}. \n\n
 	#voetbal #voetbalweer #football #weather #Levarne #ishetvoetbalweer`;
 }
 
 async function tweetWeather(tweet) {
+	const time = moment().tz("Europe/Amsterdam").format("LT");
 	twitterClient.tweets
 		.statusesUpdate({
-			status: tweet,
+			status: `[${time}] ${tweet}`,
 		})
 		.then((r) => console.log("tweeted: ", r))
 		.catch((e) => console.log("error while tweeting: ", e));
